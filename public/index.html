@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+</head>
+
+<body>
+    <h1> CHAT APP </h1>
+
+    <div>
+        <input name="input" type="text" id="message" placeholder="Type your Message" />
+
+        <button id="sendBtn">Send</button>
+    </div>
+
+
+     <div id="messages"></div>
+
+     we write here backened for the connectivity  
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const messageInput = document.getElementById("message");
+        const sendBtn = document.getElementById("sendBtn");
+        const allMessage =document.getElementById("messages");                 // we use for showng the new message on website not in terminal
+
+         
+            socket.on("message", (message)=>{
+            const p = document.createElement("p");
+            p.innerText= message;
+            allMessage.appendChild(p);
+
+
+            sendBtn.addEventListener("click", (e) => {
+            const message = messageInput.value;
+            console.log(message);
+            socket.emit("user-send-message", message);
+
+         });
+         });
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <h1>Chat App</h1>
+    <div>
+      <input
+        type="text"
+        name="input"
+        id="message"
+        placeholder="Type your message"
+      />
+      <button id="sendBtn">Send</button>
+    </div>
+
+    <div id="messages"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      const messageInput = document.getElementById("message");
+      const sendBtn = document.getElementById("sendBtn");
+      const allMessages = document.getElementById("messages");
+
+
+      socket.on("message", (message) => {
+        const p = document.createElement("p");
+        p.innerText = message;
+        allMessages.appendChild(p);
+      });
+
+      sendBtn.addEventListener("click", (e) => {
+        const message = messageInput.value;
+        console.log(message);
+        socket.emit("user-send-message", message);
+      });
+
+    
+    </script>
+  </body>
+</html>

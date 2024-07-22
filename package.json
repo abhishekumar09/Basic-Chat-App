@@ -1,0 +1,19 @@
+{
+  "name": "socket.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11"
+  }
+}
